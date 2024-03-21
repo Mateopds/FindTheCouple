@@ -1,0 +1,475 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color1: rgb(14, 58, 56);
+  --color2: rgb(0, 69, 88);
+  --color3: rgb(40, 6, 231);
+  --color4: rgb(214, 139, 27);
+}
+
+body {
+  background-image: url("../media/pexels-mikechie-esparagoza-1601774.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: bold;
+  height: 100vh;
+  overflow: hidden;
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: rgb(165, 165, 165);
+  display: grid;
+  grid-template-rows: 10% auto;
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas:
+    "header header"
+    "main aside";
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.542);
+  z-index: -1;
+}
+
+header {
+  min-height: 40px;
+  position: relative;
+  grid-area: header;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--color1);
+  border: 2px solid gray;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  padding: 1rem;
+}
+
+.tablero {
+  display: grid;
+  grid-area: main;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  background-color: var(--color2);
+  position: relative;
+  border-bottom-left-radius: 20px;
+}
+
+.carta {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  height: 100%;
+  aspect-ratio: 2/3;
+  perspective: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(var(--color4), rgb(88, 88, 88));
+  display: grid;
+  position: absolute;
+  place-content: center;
+  font-size: 4rem;
+  border-radius: 0.5rem;
+  backface-visibility: hidden;
+  user-select: none;
+}
+
+.back {
+  background: linear-gradient(rgb(177, 177, 177), rgb(219, 182, 112));
+  transform: rotateY(180deg);
+}
+
+.card.flipped .content {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
+  cursor: revert;
+}
+
+aside {
+  background-color: var(--color1);
+  grid-area: aside;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  border: 2px solid gray;
+  border-top: none;
+  border-bottom-right-radius: 20px;
+}
+
+article {
+  margin-bottom: 15px;
+}
+
+aside section.iniciocontador {
+  position: absolute;
+  top: 50%;
+}
+.cuentaatras {
+  margin-top: 1.5rem;
+  animation: escalarContador 1s ease-in-out infinite;
+}
+
+@keyframes escalarContador {
+
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.6;
+  }
+  100% {
+    scale: 1
+  }
+  
+}
+
+/** clases para JS */
+
+.invisible {
+  display: none;
+}
+
+.felicitar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  text-align: center;
+  font-size: 3rem;
+  color: crimson;
+  font-weight: bold;
+  animation: grande 1.2s ease-in-out;
+}
+
+.finalJuego {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  text-align: center;
+  font-size: 3rem;
+  color: crimson;
+  font-weight: bold;
+  animation: grande 1.2s ease-in-out infinite;
+}
+
+.fondo {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+}
+
+.rank {
+  text-transform: uppercase;
+}
+
+.top-players {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  padding: 10px;
+  font-size: 0.85rem;
+  line-height: 1.3rem;
+}
+.punctuation {
+  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+@keyframes grande {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3);
+    color: purple;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+form {
+  background-image: url("../media/pexels-element-digital-1293269.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid grey;
+  box-shadow: 10px 10px 30px #d9ffe729;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 1;
+}
+
+.ventana {
+  position: relative;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: var(--color1);
+}
+
+form button {
+  background: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(255, 94, 247, 0.609) 17.8%,
+    rgba(2, 247, 255, 0.519) 100.2%
+  );
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: "Press Start 2P", system-ui;
+}
+
+form input {
+  background: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(255, 217, 253, 0.609) 17.8%,
+    rgba(2, 247, 255, 0.519) 100.2%
+  );
+  border: none;
+  padding: 0.5rem;
+  color: white;
+  caret-color: white;
+  border-radius: 5px;
+  font-family: "Press Start 2P", system-ui;
+  caret-color: black;
+}
+
+input:focus {
+  outline: none;
+}
+
+form input::placeholder {
+  color: white;
+  letter-spacing: 1px;
+}
+
+form input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.2); 
+}
+
+.invalid {
+  font-size: 0.8rem;
+  color: crimson;
+}
+
+.obligatorio {
+  position: absolute;
+  top: 35%;
+  right: 45%;
+}
+
+button.reset {
+  font-family: "Press Start 2P", system-ui;
+  padding: 0.5rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 75px;
+  background-color: var(--color2);
+  color: var(--color4);
+  border: 1px solid var(--color4);
+  cursor: pointer;
+  box-shadow: 1px 1px 0.8;
+}
+
+button.stage {
+  font-size: 0.7rem;
+  font-family: "Press Start 2P", system-ui;
+  padding: 0.45rem;
+  max-width: 90px;
+  max-height: 50px;
+  border-radius: 5px;
+  background-color: var(--color2);
+  color: var(--color4);
+  border: 1px solid var(--color4);
+  cursor: pointer;
+  box-shadow: 1px 1px 0.8;
+  position: absolute;
+  bottom: 20%;
+  right: 2%;
+}
+
+button.reset:hover, button.stage:hover {
+  background-color: rgb(5, 99, 125);
+} 
+
+@media (max-width: 1024px) {
+
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr auto 0.2fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "aside";
+  }
+
+  .tablero {
+    grid-area: main;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom-left-radius: 0px;
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  aside {
+    grid-area: aside;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    border: 2px solid gray;
+    border-bottom-left-radius: 20px;
+    min-height: 25%;
+  }
+
+  aside section.iniciocontador {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  button.reset {
+    font-size: 15px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .player,
+  .tries {
+    margin-top: 1rem;
+  }
+}
+
+
+@media (max-width: 767px) {
+  body {
+    grid-template-rows: 0.1fr auto 0.25fr;
+    font-size: 0.8rem;
+  }
+
+  aside {
+    font-size: 0.7rem;
+    min-height: 40%;
+    padding: 1rem;
+  }
+
+  button.reset {
+    font-size: 10px;
+    width: 70px;
+    height: 70px;
+  }
+
+  aside section.iniciocontador {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  header {
+    display: flex;
+  }
+
+  header h1 {
+    line-height: 1.2rem;
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+
+  .top-players {
+    font-size: 0.5rem;
+  }
+
+  .player,
+  .tries {
+    margin: 5px;
+  }
+
+  .front,
+  .back {
+    font-size: 3rem;
+  }
+
+  button.stage {
+    font-size: 0.5rem;
+    padding: 0.3rem;
+    max-width: 70px;
+    max-height: 40px;
+    position: unset;  
+    justify-self: flex-end;
+  }
+
+}
+
+
+@media (max-width: 430px) {
+  aside {
+    font-size: 0.7rem;
+  }
+}

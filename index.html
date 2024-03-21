@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/android-chrome-192x192.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" class="change-color" href="./styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      href="./media/pexels-element-digital-1293269.jpg"
+      as="image"
+    />
+    <title>FIND THE COUPLE</title>
+  </head>
+  <body>
+    <form class="prompt">
+      <div class="ventana">
+        <input type="text" name="name" placeholder="Nickname..." autocomplete="off" />
+        <p class="obligatorio"></p>
+        <button class="btnStart" type="submit">START GAME</button>
+      </div>
+    </form>
+    <header class="header">
+      <h1>FIND THE COUPLE</h1>
+      <button class="stage">THEME</button>
+    </header>
+    <main class="tablero">
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🐒</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🐒</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🦄</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🦄</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🐍</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🐍</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🐥</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🐥</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🐳</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🐳</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🦜</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🦜</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🦁</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🦁</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🐡</div>
+          </div>
+        </section>
+      </div>
+      <div class="carta">
+        <section class="card">
+          <div class="content">
+            <div class="front">❔</div>
+            <div class="back">🐡</div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <aside class="aside">
+      <section>
+        <article class="player invisible">PLAYER</article>
+        <article class="tries invisible">ATTEMPTS:</article>
+        <article class="result invisible">0</article>
+      </section>
+      <section class="iniciocontador invisible">
+        STARTS IN
+        <p class="cuentaatras"></p>
+      </section>
+      <section class="rank invisible">
+        <p>Ranking</p>
+        <div class="top-players"></div>
+      </section>
+      <button class="reset invisible">RESET</button>
+    </aside>
+    <script src="./main.js"></script>
+  </body>
+</html>
